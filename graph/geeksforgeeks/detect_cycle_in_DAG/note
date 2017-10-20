@@ -1,0 +1,10 @@
+This problem can be solved using modified DFS.
+(backtracking)
+Solution -
+1. perform dfs by considering each vertex as a starting vertex.
+2. while performing dfs we must maintain two arrays one for marking visited
+   nodes and other arrays used to verify whether current is present in stack or not.
+3. conditions
+    A. vertex[i] == false && hasCycle(...)(do for each adjacent vertex of i)
+    B. when node i is visited then you will have to check whether that perticular
+    node is present in stack or not if yes then return true otherwise return false.

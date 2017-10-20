@@ -1,0 +1,86 @@
+Buy and sell stock.
+
+- In this problem you are given array of stock.
+- As we know stock always different on each day.
+- let's see a example {100, 180, 260, 310, 40, 535, 695}
+  you can see in above example day 0 stock is 100 and day 1 stock is 180 ... day 6 stock is 695.
+- So in this problem you have to find out all possible buy and sell interval's.
+- lets see solution of above example
+
+FIRST:
+day 0 100 (buy)
+day 1 180 (profit : 80)
+day 2 260 (profit : 160)
+day 3 310 (profit : 210)
+day 4 40 (loss : 60)
+    So better to sell that product on day 3 to earn maximum profit.
+    therefore first interval would be 0(buy) : 3(sell).
+SECOND:
+day 4 40 (buy)
+day 5 535 (profit : 495)
+day 6 695 (profit : 655)
+day 7 sale end.
+    So dealer has to sell that product on day 6 in order to get maximum profit.
+    Therefore second interval would be 4(buy) : 6(sell);
+
+  You can solve this problem by using brute force algorithm in O(n^2) time
+  just loop through n(i = 0 to n) and again loop through(j = i to n)
+  find out maximum profit and store interval that interval (i : j).
+
+Ques: How to solve above problem in order of n time.
+
+ while(i < n - 1){
+            Interval interval = new Interval();
+            //buy
+            while(i < n - 1 && price[i + 1] <= price[i])
+                i++;
+
+            if(i == n - 1)
+                break;
+
+            interval.buy = i++;
+            //sell
+            while(i < n && price[i] >= price[i - 1])
+                i++;
+
+            interval.sell = i - 1;
+            list.add(interval);
+        }
+
+  Key points:
+  1. Don't have to buy product on last day because you cannot sell it.
+     Outer loop must be arr[0..n - 1]
+
+  2. Inside the outer loop we have to find out
+     the day when you will have to buy product
+     price[i + 1] <= price[i]
+     as in above expression  if price on next day is less than price of current day
+     then seller must prefer next day.
+
+  3. Same thing we should prefer at selling time
+     price[i] >= price[i - 1]
+     here we compare price of day with previous day and figure out when profit
+     will be maximum.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

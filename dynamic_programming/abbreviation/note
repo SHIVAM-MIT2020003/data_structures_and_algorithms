@@ -1,0 +1,25 @@
+
+Logic -
+
+I treat each character of string a as person.
+Capital letter represents a person who is more powerful and have some pride on him that why always come with wrong(FALSE) value and no one can remove him.
+Small letter represents a person who is less powerful and alway comproise with his neighbour.
+
+Now lets start a story.
+Example a: daBcd
+        b: ABC
+
+There is a Area named DP of size 5 + 1 X 3 + 1 where 6 is width and 4 is height.
+First d came with false value because he don;t know anything about that area soon he relized that he had to convert himself as his neighbour since
+he didn't have any neighour so he convert himselft as right person(TRUE).
+
+
+
+
+//come to the point
+
+2 thing we need to concern in order to solve this problem
+
+1. If a[i] in capital letter it come with false value and if a[i] match with b[j] then it check dp[i - 1][j - 1] to make sure every thing is fine till know
+2. If a[i] is smaller letter it check from to just previous character everything is fine or not if yes then store true and if a[i] was matched with then it would be valent good and store true again.
+
